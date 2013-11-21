@@ -23,6 +23,8 @@
             <ref local="sessionFactory" />
         </property>
     </bean>
+    
+    <bean class="interceptor.BasicInterceptor"></bean>
 </mvc:interceptors>
 
   <!-- 
@@ -46,11 +48,11 @@
     id="sessionFactory"
     class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
 
-    <property name="configLocation">    
+    <!-- <property name="configLocation">    
         <value>
             classpath:hibernate.cfg.xml
         </value>
-    </property>
+    </property> -->
 
 	<property name="dataSource" ref="dataSource" />
 	<property name="hibernateProperties">
@@ -58,7 +60,7 @@
                 <prop key="hibernate.dialect">org.hibernate.dialect.SQLServerDialect</prop>
                 <prop key="hibernate.hbm2ddl.auto">update</prop>
                 <prop key="hibernate.current_session_context_class">org.springframework.orm.hibernate4.SpringSessionContext</prop>
-                <prop key="hibernate.show_sql">true</prop>
+                <!-- <prop key="hibernate.show_sql">true</prop>  -->
                 <prop key="hibernate.c3p0.min_size">3</prop>
 				<prop key="hibernate.c3p0.max_size">20</prop>
 				<prop key="hibernate.c3p0.timeout">300</prop>
@@ -66,6 +68,16 @@
 				<prop key="hibernate.c3p0.idle_test_period">3000</prop> 
             </props>
      </property>
+     
+     <!-- <property name="annotatedClasses">
+     		<list>
+     			<value>beans.SampleBean</value>
+     			<value>beans.User</value>
+     			<value>beans.JSample</value>
+     		</list>
+     </property> -->
+     
+     <property name="packagesToScan" value="beans"/>
 </bean>    
 
 <bean name="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
