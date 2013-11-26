@@ -1,6 +1,7 @@
 package dao;
 
 
+import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -59,6 +60,11 @@ public class GenericDaoImpl<T> implements GenericDao<T> {
 		// TODO Auto-generated method stub
 		//getHibernateTemplate().delete(t);
 		getSession().delete(t);
+	}
+	
+	@Override
+	public Criteria findByCriteria(T t){
+		return getSession().createCriteria(t.getClass());
 	}
 
 }

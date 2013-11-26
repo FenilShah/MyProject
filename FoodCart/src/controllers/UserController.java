@@ -36,7 +36,7 @@ public class UserController {
 	}
 	
 	@RequestMapping("userRegistrationSubmit")
-	public String userRegistrationSubmit(HttpServletRequest request, HttpServletResponse response, User user){
+	public String userRegistrationSubmit(HttpServletRequest request, HttpServletResponse response, User user) throws Exception{
 		//.out.println(user.getDisplayName());
 		userDao.save(user);
 		

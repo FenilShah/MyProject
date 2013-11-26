@@ -5,7 +5,7 @@ $(document).ready(function(){
 		window.location.replace("SchoolMasterRegistrationPage.htm");
 	});
 	$('#userRegistrationButton').click(function(){
-		window.location.replace("userRegistrationPage.htm");
+		window.location.href = "userRegistrationPage.htm";
 	});
 	$('#askQuestionButton').click(function(){
 		window.location.replace("SchoolMasterRegistrationPage.htm");
@@ -16,7 +16,7 @@ $(document).ready(function(){
 });
 </script>
 
-<h1>Welcome to the amazing world</h1>
+<!--  <h1>Welcome to the amazing world</h1> -->
 <form name="test" action="HibernateTest">
 	<input type="submit" value="Click Here For Testing Hibernate"/>
 	<input type="button" id="schoolMasterRegistrationButton" value="Register School">

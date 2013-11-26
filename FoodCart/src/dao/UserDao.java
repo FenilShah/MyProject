@@ -16,8 +16,9 @@ public class UserDao {
 	@Inject
 	GenericDaoImpl<User> genericDaoImpl;
 	
-	public void save(User user){
+	public void save(User user) throws Exception{
 		genericDaoImpl.save(user);
+		//throw new Exception();
 	}
 	
 	
