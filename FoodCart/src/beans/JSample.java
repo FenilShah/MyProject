@@ -10,6 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import org.springframework.beans.factory.annotation.Value;
+
 
 
 @Entity
@@ -20,6 +22,7 @@ public class JSample {
 	private String jDescription;
 	private User user;
 	private Timestamp dateCreated;
+	private boolean approved;
 	
 	@Id
 	@GeneratedValue
@@ -62,6 +65,16 @@ public class JSample {
 	public void setDateCreated(Timestamp dateCreated) {
 		this.dateCreated = dateCreated;
 	}
+	
+	@Column(name="Approved")
+	@Value("false")
+	public boolean isApproved() {
+		return approved;
+	}
+	public void setApproved(boolean approved) {
+		this.approved = approved;
+	}
+	
 	
 	
 }
